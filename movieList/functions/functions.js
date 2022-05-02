@@ -18,4 +18,5 @@ const addMovie = async (driver) => {
   expect(isDisplayed).toBeTruthy();
 };
 
-module.exports = { addMovie };
+const checkOffMovie = async (driver) => {};
+module.exports = { addMovie, checkOffMovie };
