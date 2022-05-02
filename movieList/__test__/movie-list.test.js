@@ -10,8 +10,8 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  //   await driver.sleep(1000);
-  //   await driver.quit();
+  await driver.sleep(1000);
+  await driver.quit();
 });
 
 it("should add a new movie to list", async () => {
