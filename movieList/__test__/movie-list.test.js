@@ -3,7 +3,7 @@ require("chromedriver");
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
 
-const { addMovie } = require("../functions/functions");
+const { addMovie, checkOffMovie } = require("../functions/functions");
 
 beforeEach(async () => {
   await driver.get("http://127.0.0.1:5500/movieList/index.html");
@@ -16,4 +16,8 @@ afterAll(async () => {
 
 it("should add a new movie to list", async () => {
   await addMovie(driver);
+});
+
+it("should cross out watched movie", async () => {
+  await checkOffMovie(driver);
 });

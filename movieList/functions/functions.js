@@ -18,5 +18,17 @@ const addMovie = async (driver) => {
   expect(isDisplayed).toBeTruthy();
 };
 
-const checkOffMovie = async (driver) => {};
+const checkOffMovie = async (driver) => {
+  const crossOffMovie = await driver.findElement(By.xpath("//span"));
+
+  crossOffMovie.click();
+
+  await driver.sleep(1000);
+
+  const crossed = await driver.findElement(By.xpath("//span.checked"));
+
+  const isCrossed = crossed.isDisplayed();
+
+  expect(isCrossed).toBeTruthy();
+};
 module.exports = { addMovie, checkOffMovie };
