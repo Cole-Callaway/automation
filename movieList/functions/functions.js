@@ -19,13 +19,25 @@ const addMovie = async (driver) => {
 };
 
 const checkOffMovie = async (driver) => {
-  const crossOffMovie = await driver.findElement(By.xpath("//span"));
+  const addMovieInput = await driver.findElement(By.xpath("//input"));
+
+  addMovieInput.sendKeys("Indiana Jones");
+
+  const addMovieBtn = await driver.findElement(By.xpath("//button"));
+
+  addMovieBtn.click();
+
+  await driver.sleep(1000);
+
+  const crossOffMovie = await driver.findElement(By.xpath("//ul"));
 
   crossOffMovie.click();
 
   await driver.sleep(1000);
 
-  const crossed = await driver.findElement(By.xpath("//span.checked"));
+  const crossed = await driver.findElement(
+    By.xpath("//*[contains(text(), 'Indiana Jones')]")
+  );
 
   const isCrossed = crossed.isDisplayed();
 
