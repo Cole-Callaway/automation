@@ -16,6 +16,8 @@ const addMovie = async (driver) => {
   const isDisplayed = movie.isDisplayed();
 
   expect(isDisplayed).toBeTruthy();
+
+  driver.sleep(1000);
 };
 
 const checkOffMovie = async (driver) => {
@@ -29,7 +31,7 @@ const checkOffMovie = async (driver) => {
 
   await driver.sleep(1000);
 
-  const crossOffMovie = await driver.findElement(By.xpath("//ul"));
+  const crossOffMovie = await driver.findElement(By.xpath("//span"));
 
   crossOffMovie.click();
 
